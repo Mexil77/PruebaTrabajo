@@ -4,7 +4,7 @@ const EvaluaGanador = async (nombreDelTxt) => {
     module.exports = fs.readFileSync(filename, "utf8");
   };
   let Input = await fs.readFileSync(
-    `./inputs/${nombreDelTxt}`,
+    `./inputs/${nombreDelTxt}.txt`,
     "utf-8",
     (err, data) => {
       if (err) {
