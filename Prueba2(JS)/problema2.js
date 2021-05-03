@@ -1,19 +1,15 @@
 fs = require("fs");
-const EvaluaGanador = async (nombreDelTxt) => {
+const EvaluaGanador = async (rutaDelTxt) => {
   require.extensions[".txt"] = function (module, filename) {
     module.exports = fs.readFileSync(filename, "utf8");
   };
-  let Input = await fs.readFileSync(
-    `./inputs/${nombreDelTxt}.txt`,
-    "utf-8",
-    (err, data) => {
-      if (err) {
-        console.log("error: " + err);
-      } else {
-        console.log(data);
-      }
+  let Input = await fs.readFileSync(rutaDelTxt, "utf-8", (err, data) => {
+    if (err) {
+      console.log("error: " + err);
+    } else {
+      console.log(data);
     }
-  );
+  });
   let regex = /\s/;
   let inputArray = Input.split(regex)
     .filter((data) => data.length > 0)
