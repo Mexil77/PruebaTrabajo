@@ -17,6 +17,10 @@ const EvaluaGanador = async (rutaDelTxt) => {
 
   let rounds = parseInt(inputArray.shift());
 
+  if (rounds < 1 || rounds > 10000) {
+    return "El numero de rondas no es valido.";
+  }
+
   let puntajesJugador1 = inputArray.filter((data, idx) => idx % 2 == 0);
   let puntajesJugador2 = inputArray.filter((data, idx) => idx % 2 == 1);
   let ganadores = [];
